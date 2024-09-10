@@ -369,13 +369,21 @@ Make sure in the Travis CI GUI you label the Harpoon API as ``HARPOON_API_TOKEN`
      only:
        - master
 
-Next, simply go to the dropdown on the left-hand side, select "Harpoon," and then search. You should see your project; drag and drop it to the stages screen. You should then see the push. Look at this working example `here <https://github.com/Montana/travis-harpoon/blob/master/.travis.yml>`_. This project also contains a NodeJS project. 
+Next, simply go to the dropdown on the left-hand side, select "Harpoon," and then search. You should see your project; drag and drop it to the stages screen. You should then see the push. Look at this working example `here <https://github.com/Montana/travis-harpoon/blob/master/.travis.yml>`_. This project also contains a pre coded NodeJS project. 
 
 You've now successfully added harpoon to your Travis CI/CD pipeline. Some things to remember, firstly it's imparitive you have your `harpoon` usernamae in this string: 
 
 .. code-block:: shell
 
    echo "$HARPOON_API_TOKEN" | docker login https://registry.harpooncorp.com -u montana --password-stdin
+
+You need to make sure Travis logs into DockerHub with the ``env vars`` you've given it, watch out for the following: 
+
+.. image:: ../images/travis.png
+      :width: 500
+      :align: center
+
+If you see something similar pictured above you've now succesfully used harpoon with Travis.
 
 Other
 =====
